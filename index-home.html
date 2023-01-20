@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+        }
+        body{
+            background-color: rgba(255, 255, 255, 0.781);
+        }
+        main{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+
+            /* height:160vh; */
+            /* border: 1px solid red; */
+            margin: 5px;
+        }
+        main>header{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 100px;
+            border-bottom: 3px solid rgba(163, 163, 170, 0.425);
+        }
+        main>header>.box_1{
+            width: 80%;
+            height: 25px;
+            border: 1px solid rgb(243, 27, 27);
+            background-color: rgba(128, 128, 128, 0.274);
+        }
+        main>header>.box_1>a{
+            padding: 20px;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        main>header>.box_2{
+            width: 20%;
+            height: 25px;
+            background-color: rgba(128, 128, 128, 0.274);
+
+            border: 1px solid black;
+        }
+        main>header>.box_2>span{
+            padding: 30px;
+        }
+        main>header>.box_3{
+            width: 100%;
+            height: 70px;
+            display:flex ;
+            /* background-color: rgba(150, 234, 245, 0.452); */
+        }
+        main>header>.box_3>.kharid{
+            width: 20%;
+            height: 100%;
+            display:flex ;
+            align-items: center;
+           
+        }
+        main>header>.box_3>.kharid>a{
+            display: flex;
+            width: 80%;
+            height:50%;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 20px;
+            text-decoration: none;
+            background-color: rgb(245, 182, 219);
+            margin-right: 20px;
+            border-radius: 6%;
+        }
+        main>header>.box_3>.search{
+            width: 34%;
+            height: 100%;
+            /* border: 1px solid red; */
+            display:flex ;
+            justify-content: center;
+            align-items: center;
+        }
+        main>header>.box_3>.arm{
+            background-image: url(img/arm.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 34%;
+            height: 100%;
+            margin-left: 25px;
+        }
+        main>nav{
+            width: 100%;
+            height: 40px;
+            /* border: 1px solid red; */
+        }
+        main>nav>ul{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            flex-direction: row;
+            background-color: rgb(255, 255, 255);
+        }
+        main>nav>ul>li{
+            display: flex;
+            height: 100%;
+            justify-content:center;
+            align-items: center;
+        }
+        
+        main>nav>ul>li>a{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content:stretch;
+            align-items: center;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 20px;
+            padding: 0 20px;
+            text-decoration: none;
+            border-left: 1px solid rgba(224, 30, 30, 0.158);
+            /* background-color: beige; */
+            color: black;
+        }
+        main>nav>ul>li>a:hover{
+            border-bottom: 1px solid rgba(211, 138, 138, 0.452);
+            background-color: black;
+            color: white;
+        }
+        main>nav>ul>li>ul{
+            width: 100%;
+            /* background-color: brown; */
+            position: absolute;
+            top: 145px;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: .4s;
+            margin-left: 10px;
+            /* border-radius: 3%; */
+
+        }
+        main>nav>ul>li:hover>ul{
+            opacity: 1;
+            visibility: visible;
+            /* border: 1px solid black; */
+            border-radius: 20px;
+            z-index: 90;
+        }
+        main>nav>ul>li>ul>li{
+            height: 400px;
+            /* width: 98%; */
+            background-color: rgb(191, 236, 243);;
+            color: rgb(0, 0, 0);
+            display: flex;
+            /* padding: 20px; */
+            list-style-type: none;
+            border: 1px solid gainsboro;
+            border-radius: 3%;
+            margin-right: 20px;
+
+
+        }
+        main>nav>ul>li>ul>li>ul{
+            width: 20%;
+         
+            /* border: 1px solid red; */
+        }
+        main>nav>ul>li>ul>li>ul>li{
+            display: flex;
+
+            justify-content: flex-start;
+            align-items: center;
+            line-height: 35px;
+            list-style-type: none;
+            padding-right: 20px;
+            /* border: 1px solid red; */
+
+        }
+        main>nav>ul>li>ul>li>ul>li>a{
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            font-size: 20px;
+            /* border-radius: 20px; */
+
+        }
+        .img_1{
+            display:flex ;
+            width: 90%;
+            height: 75px;
+            /* border: 10px groove brown; */
+            margin: 10px auto;
+            position: relative;
+            background-image: url(img/202112311932446738.png);
+            background-repeat: no-repeat;
+            background-size:contain;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        .slide{
+            display:flex ;
+            width: 90%;
+            height: 230px;
+            /* border: 10px groove brown; */
+            margin: 10px auto;
+            position: relative;
+            border-radius: 10px;
+        }
+        .slide>*{
+            display: flex;
+            border: 1px solid black;
+            position: absolute;
+        }
+        .window{
+            width: 100%;
+            height: 230px;
+            top: 0;
+            left: 0;
+        }
+        .b{
+            display: flex;
+            bottom: 20px;
+            left: 40%;
+            transform: translateX(-40);
+            background-color: aliceblue;
+        }
+        .br{
+            width: 30px;
+            height:10px;
+            border: 1px solid rgb(247, 240, 240);
+            margin: 2px;
+            cursor: pointer;
+            top: 0;
+            background-size: cover;
+            z-index: 1;
+            background-color: rgba(255, 7, 7, 0.842);
+        }
+        .br:hover{
+            background-color: rgb(180, 179, 180);
+        }
+        .slide>input{
+            display:none ;
+        }
+        #ht1:checked~.window{
+            background-image: url(img/202205152121208360.png);
+            background-size:contain;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        #ht2:checked~.window{
+            background-image: url(img/202205131920115289.png);
+            background-size:contain;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        #ht3:checked~.window{
+            background-image: url(img/202205141157079755.png);
+            background-size:contain;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        #ht4:checked~.window{
+            background-image: url(img/202204200839063552.png);
+            background-size:contain;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        .sharayet{
+            display:flex ;
+            flex-direction: row;
+            width: 90%;
+            height: 50px;
+            border:1px groove brown;
+            margin: 10px auto;
+            position: relative;
+            border-radius: 10px;
+        }
+        .sharayet>*{
+        display:flex ;
+            flex-direction: row;
+        }
+        figure>*{
+            display:flex ;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            text-decoration: none;
+            margin: 5px;
+
+        }
+        .sharayet>ul>li{
+            display: flex;
+            height: 100%;
+            justify-content:center;
+            align-items: center;
+            list-style-type: none;
+
+        }
+        .sharayet>ul>li>a{
+            display: flex;
+            /* width: 100%; */
+            height: 100%;
+            font-size: 20px;
+            padding: 0 50px;
+            text-decoration: none;
+            color: black;
+        }
+        .trick{
+            width: 90%;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+            align-content: center;
+            margin: 10px auto;
+        }
+        .trick>figure{
+            width:22.5%;
+            height: 100px;
+            margin: 15px 0;
+            position: relative;
+            background-size:contain;
+        }
+        .trick>figure>*{
+            position: absolute;
+        }
+        .trick>.mahsolat>img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: bottom;
+            border-radius: 15px;
+            cursor: pointer;
+            }       
+        .trick>.mahsolat:hover::after{
+            background-color: rgba(137, 43, 226,0);
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(20, 17, 17, 0.473);
+            position: absolute;
+            top: 0;left: 0;
+            transition: 1s;
+            border-radius: 15px;
+        }
+        .trick>.mahsolat>figcaption{
+            /* width: 50%; */
+            /* background-color: red; */
+            text-align: center;
+            bottom: 0;
+            left: 40%;
+            text-transform: uppercase;
+            z-index: 9;
+            /* top: 20%; */
+            opacity: 0;
+            transition: 1s;
+            text-shadow: 1px 1px 10px white;
+            cursor: pointer;
+        }
+        .trick>.mahsolat:hover>figcaption{
+            bottom: 45%;
+            opacity: 1;
+        }
+        .trick_1{
+            width: 90%;
+            height: 350px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content:space-evenly;
+            margin: 10px auto;
+            border: 1px solid red;
+            border: 1px solid rgb(196, 190, 190);
+            border-top:2px solid grey ;
+
+        }
+        .trick_1>h3{
+            height: 30px;
+            width: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top-left-radius: 70px;
+            background-color: rgba(105, 104, 103, 0.808);
+            color: white;
+            position: relative;
+        }
+        .trick_1>article:nth-of-type(1){
+            height: 30px;
+            width: 75%;
+            background-color: rgb(229, 245, 245);
+        }
+        .trick_1>article:nth-of-type(2){
+            width: 100%;
+            /* border: 2px solid red; */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: first baseline;
+            align-items: center;
+             position: relative;
+
+        }
+        .trick_1>article:nth-of-type(2)>figure{
+            position: relative;
+        }
+        .trick_1>article:nth-of-type(2)>*{
+            border: 1px solid rgba(180, 178, 180, 0.589);
+            /* font-size: 10px; */
+            flex-grow: 1;
+            transition: 1s;
+            /* position: relative; */
+
+        }
+        .trick_1>article:nth-of-type(2)>figure>figcaption{
+            width: 100%;
+            display: flex;
+            justify-content: first baseline;
+            font-size: 14px;
+            /* position: relative; */
+        }
+        .trick_1>article:nth-of-type(2)>.gallery:hover::after{
+            content: '';
+            display: block;
+            width: 100%;
+            height: 10%;
+            background-color: rgba(0, 64, 240, 0.308);
+            position: absolute;
+            bottom: 0;right: 0;
+            top: 65%;
+            transition: 1s;
+            /* border-radius: 10px; */
+        }
+        .trick_1>article:nth-of-type(2)>.gallery>figcaption:nth-of-type(1){
+            opacity: 0;
+        }
+        .trick_1>article:nth-of-type(2)>.gallery:hover>figcaption:nth-of-type(1){
+            opacity: 1;
+        }
+        .trick_1>article:nth-of-type(2)>.gallery:hover>img{
+            width: 101%;
+        }
+        .trick_1>article:nth-of-type(2)>.gallery>figcaption:nth-of-type(4){
+            background-color: rgba(240, 68, 162, 0.767);
+            width: 98%;
+            border-bottom-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+    </style>
+
+</head>
+<body>
+    <main>
+        <header>
+            <section class="box_1">
+                    <a href="">وارد شوید</a>
+                    <a href="">ثبت نام</a>
+            </section>
+            <section class="box_2">
+                    <span class="headerLink" id="mainDate" next-date="سه&#160;شنبه 27 اردیبهشت 1401">
+                        <i class="fa fa-calendar"></i>
+                        <span>دوشنبه 26 اردیبهشت 1401</span>
+                    </span>
+                    <span class="headerLink" id="mainTime">
+                        <i class="fa fa-clock-o"></i>
+                    </span>
+                </div>
+            </section>
+            <section class="box_3">
+                <article class="kharid">
+                    <a href="">سبد خرید</a>
+                </article>
+                <article class="search">
+                    <form id="form"> 
+                        <input type="search"  name="q" placeholder="کالای مورد نظر خود را جستجو کنید...">
+                        <button>Search</button>
+                      </form>
+                </article>
+                <article class="arm">
+                    <!-- <h2>halimeh talbyanjoo</h2> -->
+                </article>
+            </section>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="">خانه</a></li>
+                <li><a href="">آرایشی</a>
+                    <ul>
+                        <li>
+                            <ul>
+                                <li><h3 href="" style="color: brown; border-bottom: 1px dashed red;"> آرایش صورت</h3></li>
+                                <li><a href=""> برنزه کننده</a></li>
+                                <li><a href=""> هیلاتر</a></li>
+                                <li><a href=""> رژگونه</a></li>
+                                <li><a href=""> کانسیلر</a></li>
+                                <li><a href="">پنکیک </a></li>
+                                <li><a href="">بیس آرایش صورت </a></li>
+                                <li><a href="">تثبیت کننده آرایش</a></li>
+                                <li><h3 style="color: brown; border-bottom: 1px dashed red;">آرایش چشم</h3></li>
+                                <li><a href="">مداد چشم</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="">  خط چشم </a></li>
+                                <li><a href="">ریمل </a></li>
+                                <li><a href="">سایه چشم </a></li>
+                                <li><a href=""> ریمل ابرو </a></li>
+                                <li><a href="">مداد ابرو </a></li>
+                                <li><a href=""> سایه ابرو</a></li>
+                                <li><a href=""> حالت دهنده ابرو </a></li>
+                                <br>
+                                <li><h3 style="color: brown; border-bottom: 1px dashed red;"> آرایش لب</h3></li>
+                                <li><a href="">مداد لب </a></li>
+                                <li><a href=""> رژ لب</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href=""> بیس آرایش لب</a></li>
+                                <li><a href=""> برق لب</a></li>
+                                <li><h3 style="color: brown; border-bottom: 1px dashed red;">  ابزارها و لوازم جانبی آرایش</h3></li>
+                                <li><a href=""> بهداشت و زیبایی ناخن</a></li>
+                                <li><a href=""> چسب مژه </a></li>
+                                <li><a href="">مژه مصنوعی</a></li>
+                                <li><a href=""> تراش</a></li>
+                                <li><a href=""> اسفنج آرایشی</a></li>
+                                <li><a href=""> پد آرایش پاک کن</a></li>
+                                <li><a href=""> براش آرایش</a></li>
+                                <li><a href="">  کیف لوازم آرایش</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href=""> پد و بلندر آرایشی</a></li>
+                                <li><a href=""> لنز</a></li>
+                                <li><a href="">  محلول شستشوی لنز</a></li> 
+                                <li><a href=""> موچین</a></li>
+                                <li><a href=""> آینه</a></li>
+                                <li><a href=""> فرمژه</a></li>
+                                <li><h3 style="color: brown; border-bottom: 1px dashed red;"> آرایش موها</h3></li>
+                                <li><a href=""> برس و شانه</a></li>
+                                <li><a href=""> رنگ مو و اکسیدان</a></li>
+                                <li><a href=""> مواد کراتینه مو</a></li>
+                                <li><a href=""> پودر دکلره</a></li>
+                            </ul>
+                            <ul>
+                                <li><h3 style="color: brown; border-bottom: 1px dashed red;"> آرایش ناخن</h3></li>
+                                <li><a href=""> لاک</a></li>
+                                <li><a href="">  لاک پاک کن</a></li>
+                                <li><h3 style="color: brown; border-bottom: 1px dashed red;"> ابزار و لوازم جانبی مو</h3></li>
+                                <li><a href=""> برس و شانه</a></li>
+                                <li><h3 style="color: brown; border-bottom: 1px dashed red;"> مشاهده همه محصولات آرایشی</h3></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="">بهداشتی </a></li>
+                <li><a href="">مراقبتی</a></li>
+                <li><a href="">عطر</a></li>
+                <li><a href="">سایر محصولات</a></li>
+                <li><a href="">فروش ویژه</a></li>
+                <li><a href="">برندها</a></li>
+                <li><a href="">ویلاگ </a></li>
+                <li><a href="">سایر</a></li>
+                <li><a href="">تماس با ما</a></li>
+            </ul>
+        </nav>
+        <div class="img_1"></div>
+        <div class="slide">
+            <input type="radio" name="click" id="ht1" checked>
+            <input type="radio" name="click" id="ht2">
+            <input type="radio" name="click" id="ht3">
+            <input type="radio" name="click" id="ht4">
+            <div class="b"> 
+            <label for="ht1" class="br"></label>
+            <label for="ht2" class="br"></label>
+            <label for="ht3" class="br"></label>
+            <label for="ht4" class="br"></label>
+            </div>
+            <div class="window"></div>
+        </div>
+        <section class="sharayet">
+            <ul>
+                <li><a href=""><figure><img src="img/202110121729051956.png" alt="">
+                    <figcaption>شرایط و نحوه ارسال</figcaption></a></li>
+                <li><a href=""><figure><img src="img/202110121729372454.png" alt="">
+                    <figcaption>شرایط بازگشت کالا</figcaption></a></li>
+                <li><a href=""> <figure><img src="img/202110121728342108.png" alt="">
+                    <figcaption>پرداخت در محل</figcaption></a></li>
+                <li><a href=""><figure><img src="img/202110121728013779.png" alt="">
+                    <figcaption>رهگیری مرسوله
+                    </figcaption></a></li>
+            </ul>
+        </section>
+        <section class="trick">
+            <figure class="mahsolat">
+                <img src="img/15.png" alt="">
+                <figcaption><img src="img/rocket_star.gif" alt=""></figcaption>
+            </figure>
+            <figure class="mahsolat">
+                <img src="img/16.png" alt="">
+                <figcaption><img src="img/rocket_star.gif" alt=""></figcaption>
+            </figure>
+            <figure class="mahsolat">
+                <img src="img/17.png" alt="">
+                <figcaption><img src="img/rocket_star.gif" alt=""></figcaption>
+            </figure>
+            <figure class="mahsolat">
+                <img src="img/18.png" alt="">
+                <figcaption> <img src="img/rocket_star.gif" alt=""></figcaption>
+            </figure>
+        </section>
+            <section class="trick_1">
+                    <h3>جدیدترین محصولات</h3>
+                    <article></article>
+                    <article>
+                        <figure class="gallery ">
+                            <img src="img/202205161147379273.jpg" alt="">
+                            <figcaption >*&nbsp;*&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;*&nbsp;</figcaption>
+                            <figcaption >اسپری ضد تعریق مردانه فیکورس</figcaption>
+                            <figcaption> مدل Boulder حجم 150 میلی لیتر </figcaption>
+                            <figcaption> 46,000 تومان </figcaption>
+                            </figure>
+                            <figure class="gallery ">
+                            <img src="img/202205161150496995.jpg" alt="">
+                            <figcaption >*&nbsp;*&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;*&nbsp;</figcaption>
+                            <figcaption >اسپری ضد تعریق مردانه فیکورس</figcaption>
+                            <figcaption> مدل Boulder حجم 150 میلی لیتر </figcaption>
+                            <figcaption> 46,000 تومان </figcaption>
+                        </figure>
+                            <figure class="gallery ">
+                            <img src="img/202205161158118692.jpg" alt="">
+                            <figcaption >*&nbsp;*&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;*&nbsp;</figcaption>
+                            <figcaption >اسپری ضد تعریق مردانه فیکورس</figcaption>
+                            <figcaption> مدل Boulder حجم 150 میلی لیتر </figcaption>
+                            <figcaption> 46,000 تومان </figcaption>
+                            </figure>
+                            <figure class="gallery ">
+                            <img src="img/202205161200276389.jpg" alt="">
+                            <figcaption >*&nbsp;*&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;*&nbsp;</figcaption>
+                            <figcaption >اسپری ضد تعریق مردانه فیکورس</figcaption>
+                            <figcaption> مدل Boulder حجم 150 میلی لیتر </figcaption>
+                            <figcaption> 46,000 تومان </figcaption>
+                            </figure>
+                            <figure class="gallery ">
+                            <img src="img/202205161203029554.jpg" alt="">
+                            <figcaption >*&nbsp;*&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;*&nbsp;</figcaption>
+                            <figcaption >اسپری ضد تعریق مردانه فیکورس</figcaption>
+                            <figcaption> مدل Boulder حجم 150 میلی لیتر </figcaption>
+                            <figcaption> 46,000 تومان </figcaption>
+                            </figure>
+                            <figure class="gallery ">
+                            <img src="img/202205171233522016.jpg" alt="">
+                            <figcaption >*&nbsp;*&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;*&nbsp;</figcaption>
+                            <figcaption >اسپری ضد تعریق مردانه فیکورس</figcaption>
+                            <figcaption> مدل Boulder حجم 150 میلی لیتر </figcaption>
+                            <figcaption> 46,000 تومان </figcaption>
+                            </figure>
+                </article>
+        </section>
+    </main>
+    
+</body>
+</html>
