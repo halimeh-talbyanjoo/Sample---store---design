@@ -1,2 +1,3 @@
 # flex-and-rotate
-![flex and rotate](https://user-images.githubusercontent.com/106431721/213745989-01f0a9f8-1053-47d2-8215-2f49fdea524c.jpg)
+![Sample store design](https://user-images.githubusercontent.com/106431721/213747091-45d80e2b-e1c8-43b1-a4b2-b9dd753fe0d2.jpg)
+
